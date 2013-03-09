@@ -1,0 +1,7 @@
+../bin/game width 400 \
+            height 300 \
+            fullscreen 0 \
+            skin ../data/skin00 \
+            scene ../data/scene03 \
+            model ../data/model00 \
+            skybox ../data/sky00

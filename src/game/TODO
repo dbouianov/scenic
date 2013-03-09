@@ -1,0 +1,71 @@
+- multiple image formats via SDL
+- support touch events
+- port to ios
+- fix collision detection
+- view volume culling
+- mesh support
+- shader support
+- have objects affected by physical environment, add weights to objects
+- create robust customizable menu system
+- change flat primitive (circle, square) bboxes from unit cube to unit square
+- make design more generic by having terrain as a static scene object and applying collision detection so that player doesn't fall through
+- controllers: act on objects having specific interfaces, eg positional controller calls setPosition, etc
+- controllers: are really the ability to update any transform and have a flexible environment
+- camera: separate velocity/position updates into controller actions and attach position controller to camera node
+- deep copy: create bboxes around all group nodes, clip against view volume + collision detection via intersection tests
+- shallow copy: create bboxes around top-level group nodes, clip against view volume + collision detection via countour maps
+- implement collision detection using countour maps for speed/memory-challenged platforms
+- create non-axis-aligned bbox, currently have axis-aligned bbox + bounding sphere
+- axis-aligned bbox + bounding sphere used for visibility determination
+- non-axis-aligned bbox + bounding sphere used for collision detection
+- think about octree memory requirements and scenarios above it would fit in
+- clip objects from view using intersection test of bounding volumes against view volume
+- clip objects from view using octree or bsp
+- investigate empty group node names in the find bounding volume path (display lists?)
+- separate out group node factory to replace primitives with display lists but leave group nodes/bboxes in place for view volumet clipping
+- define several cameras and switch between them
+- bring back platform-specific timer classes
+- use lua file include system to define effects only once
+- create a quaternion-based rotation transform
+- define a global World structure to pass to the Walk member function
+- factor physical model into separate world class
+- combine Walk and Update member functions
+- revise mirror mechanism - attach mirrored objects to mirror
+- add constructor parameters to eliminate double initialization
+- factory object creation methods should have parameters for object creation and constructors should
+have corresponding parameters so no create methods would be necessary to avoid double initialization (variable arg lists?)
+- pay price upfront on object insertion into factory hashtable then instead of going through child lists multiple times just delete the object and remove it from hashtable
+- load terrain heights from file
+- implement benchmarking that would identify platform capabilities
+- make memory optimizing pass over scene graph, resizing vectors to appropriate size
+- implement dynamic nodes for animation, actions/predicates/triggers
+- glutWMCloseFunc doesn't work?
+- generic input model to hook up to any window manager such as glut, sdl, directinput or native os window managers
+- make configuration more general, allowing terrain, skin, lights and effects folders to be located anywhere and describe these locations in a script file
+- rewrite config more generally so one can add/remove properties
+- include timestamps in UDP position update packets
+- optimize square root function with newton's method
+- check if VectorLengthSquared should be named VectorNorm
+- possibly remove mirrors which complicate design
+- change Log functions: *Message to *Msg, *Warning to *Wrn, *Error to *Err
+- switch logger to use a log file (better yet some faster OS-dependent logging mechanism) instead of console output
+- make logging function thread-safe
+- change all defines to constants
+OK - reduce memory footprint by eliminating node name fields in release build
+OK - optimize transformation nodes
+OK - check if transform matrices should be replaced by ogl commands only
+OK - rename WalkGl to a more generic name without OpenGL
+OK - add debug names for all scene noce types
+OK - move copy node logic from loader to factory
+OK - always refer to static member functions by prefixing them with class name
+OK - investigate why primitive bounding boxes for cylinders are translated up in some cases (translation/rotation order?) Last attachment of primitive to group node saves bounding box
+OK - remove bounding box member function from particle system, you always go through the particle system, so it's not necessary
+OK - investigate why gravity[CY] is not applied to particle system particles, only gravity[CX] and gravity[CZ]
+OK - switch off saving and drawing bounding boxes for primitives (primitive.cpp, primitive.h)
+OK - only draw bounding volumes for group nodes
+OK - move add child node logic from loader to factory
+OK - think about implementing copy node operation as a deep copy instead of shallow copy
+OK - move perspective transformation logic into camera
+NO - remove base Object, move GetHash to static Factory member function - virtual destructor won't be called on void *
+NO - implement base object having reference count
+NO - implement base object having list of child nodes

@@ -1,0 +1,22 @@
+OBJ		=	$(SRC:.cpp=.o)
+TARGET		:=	$(BIN_DIR)/$(TARGET)
+
+all: $(TARGET)
+test: $(TEST)
+
+$(TARGET): $(OBJ) $(SRC) $(BIN_DIR)
+	$(CXX) $(LDFLAGS) $(OBJ) -o $@
+
+$(BIN_DIR):
+	mkdir $(BIN_DIR)
+
+.PHONY: clean_bin
+clean: clean_bin
+clean_bin:
+	rm -f $(OBJ) $(TARGET)
+
+%.o: %.cpp %.h $(DEPS)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+%.o: %.cpp $(DEPS)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
