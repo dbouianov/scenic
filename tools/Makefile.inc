@@ -15,7 +15,7 @@ SRC		=	$(UTIL_SRC) $(MATH_SRC) $(SCENE_SRC)
 $(SCENE_DIR)/loader.o: CXXFLAGS += -I$(LUA_INC_DIR)
 
 CXX		=	g++
-CXXFLAGS	=	-W -Wall -I$(UTIL_DIR) -I$(MATH_DIR) -I$(SCENE_DIR) #-std=c++0x
+CXXFLAGS	=	-W -Wall -I$(UTIL_DIR) -I$(MATH_DIR) -I$(SCENE_DIR) -std=c++0x
 LDFLAGS 	=	-lGL -lGLU -lGLEW -lrt -lpng12 -llua50 -llualib50
 
 .PHONY: rel
