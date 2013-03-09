@@ -3,20 +3,18 @@ include Makefile.inc
 TARGET		=	server
 
 THRIFT_INC_DIR	=	/usr/local/include/thrift
-#THRIFT_LIB_DIR	=	/usr/local/lib
 SCHEMA_DIR	=	$(SRC_DIR)/thrift
 
 MAIN_DIR	=	$(SRC_DIR)/server
 MAIN_SRC	=	$(MAIN_DIR)/server.cpp
 
 GEN_DIR		=	$(MAIN_DIR)/gen-cpp
-GEN_SRC		=	$(GEN_DIR)/Scenic.cpp		\
-			$(GEN_DIR)/Scenic_types.cpp	\
-			$(GEN_DIR)/Scenic_constants.cpp
+GEN_SRC		=	$(wildcard $(GEN_DIR)/*.cpp)
 
 SRC		+=	$(GEN_SRC) $(MAIN_SRC)
 
-$(MAIN_DIR)/%.o: CXXFLAGS += -I$(THRIFT_INC_DIR) -I$(GEN_DIR) -Wno-strict-aliasing -Wno-unused-parameter -DHAVE_NETINET_IN_H
+$(MAIN_DIR)/%.o: CXXFLAGS += -I$(THRIFT_INC_DIR) -I$(GEN_DIR) \
+	-Wno-strict-aliasing -Wno-unused-parameter -DHAVE_NETINET_IN_H
 
 $(GEN_SRC): $(GEN_DIR)
 $(GEN_DIR):

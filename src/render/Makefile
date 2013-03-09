@@ -3,7 +3,7 @@ include Makefile.inc
 TARGET		=	render
 
 MAIN_DIR	=	$(SRC_DIR)/render
-MAIN_SRC	= 	$(MAIN_DIR)/render.cpp
+MAIN_SRC	= 	$(wildcard $(MAIN_DIR)/*.cpp)
 
 SRC		+=	$(MAIN_SRC)
 

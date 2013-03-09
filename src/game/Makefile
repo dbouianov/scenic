@@ -3,16 +3,10 @@ include Makefile.inc
 TARGET		=	game
 
 SOCKET_DIR	=	$(SRC_DIR)/socket
-SOCKET_SRC	=	$(SOCKET_DIR)/socket.cpp	\
-			$(SOCKET_DIR)/sockettcp.cpp	\
-			$(SOCKET_DIR)/socketudp.cpp
+SOCKET_SRC	=	$(wildcard $(SOCKET_DIR)/*.cpp)
 
 MAIN_DIR	=	$(SRC_DIR)/game
-MAIN_SRC	=	$(MAIN_DIR)/game.cpp		\
-			$(MAIN_DIR)/gameserver.cpp	\
-			$(MAIN_DIR)/gameclient.cpp	\
-			$(MAIN_DIR)/mymenu.cpp		\
-			$(MAIN_DIR)/mymenuitem.cpp
+MAIN_SRC	=	$(wildcard $(MAIN_DIR)/*.cpp)
 
 SRC		+=	$(SOCKET_SRC) $(MAIN_SRC)
 

@@ -1,0 +1,6 @@
+#!/bin/bash -e
+export ROOT_DIR=$(pwd)/..
+export TOOLS_DIR=${ROOT_DIR}/tools
+export DATA_DIR=${ROOT_DIR}/data
+export SRC_DIR=${ROOT_DIR}/src
+export BIN_DIR=${ROOT_DIR}/bin

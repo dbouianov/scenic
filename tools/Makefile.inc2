@@ -1,7 +1,10 @@
 OBJ		=	$(SRC:.cpp=.o)
 TARGET		:=	$(BIN_DIR)/$(TARGET)
 
+.PHONY: all
 all: $(TARGET)
+
+.PHONY: test
 test: $(TEST)
 
 $(TARGET): $(OBJ) $(SRC) $(BIN_DIR)
@@ -10,8 +13,10 @@ $(TARGET): $(OBJ) $(SRC) $(BIN_DIR)
 $(BIN_DIR):
 	mkdir $(BIN_DIR)
 
-.PHONY: clean_bin
+.PHONY: clean
 clean: clean_bin
+
+.PHONY: clean_bin
 clean_bin:
 	rm -f $(OBJ) $(TARGET)
 
