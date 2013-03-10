@@ -1,3 +1,5 @@
-./bin
-./data
+.DS_Store
+.Trashes
+bin
+data
 *.o
