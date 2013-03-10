@@ -1,3 +1,5 @@
+- move mouse smoothing code into utility LERP method
+- move RandomGravity into Vector specific method
 - multiple image formats via SDL
 - support touch events
 - port to ios
@@ -9,7 +11,7 @@
 - create robust customizable menu system
 - change flat primitive (circle, square) bboxes from unit cube to unit square
 - make design more generic by having terrain as a static scene object and applying collision detection so that player doesn't fall through
-- controllers: act on objects having specific interfaces, eg positional controller calls setPosition, etc
+- controllers: act on objects having specific interfaces, eg positional controller calls setPosition, rotational controller calls setRotation, etc
 - controllers: are really the ability to update any transform and have a flexible environment
 - camera: separate velocity/position updates into controller actions and attach position controller to camera node
 - deep copy: create bboxes around all group nodes, clip against view volume + collision detection via intersection tests
