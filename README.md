@@ -1,4 +1,4 @@
-Scenic 3D Engine
+##Scenic 3D Engine
 
 ![Screenshot 1](docs/images/screenshot1.png "Screenshot 1")
 
