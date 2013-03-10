@@ -1,3 +1,4 @@
+- create Makefile with autotools or cmake
 - move mouse smoothing code into utility LERP method
 - move RandomGravity into Vector specific method
 - multiple image formats via SDL
