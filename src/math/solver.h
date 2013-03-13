@@ -9,49 +9,49 @@ NAMESPACE_BEGIN
 INLINE uint SolveQuadratic(float a, float b, float c,
                            OUT float aRoots[2])
 {
-	if (0.0f == a)
+  if (0.0f == a)
   {
     //zero quadratic coefficient
-		if (0.0f == b)
+    if (0.0f == b)
     {
       //zero linear coefficient, no aRoots
-			return 0;
-		}
+      return 0;
+    }
     else
     {
       //non-zero linear coefficient, one root
-			aRoots[0] = -c / b;
-			return 1;
-		}
-	}
+      aRoots[0] = -c / b;
+      return 1;
+    }
+  }
   else
   {
-		//compute the discrimanant D = b^2 - 4ac
-		float d = b * b - 4.0f * a * c;
-		if (d < 0.0f)
+    //compute the discrimanant D = b^2 - 4ac
+    float d = b * b - 4.0f * a * c;
+    if (d < 0.0f)
     {
       //negative discriminant, no real aRoots
-			return 0;
-		}
+      return 0;
+    }
     else
     {
-			//non-negative discriminant, two real aRoots
-			float q = -0.5f * (b + SIGN(b) * (float)sqrt(d));
+      //non-negative discriminant, two real aRoots
+      float q = -0.5f * (b + SIGN(b) * (float)sqrt(d));
       //first real root
-			aRoots[0] = q / a;
-			if (q != 0.0f)
+      aRoots[0] = q / a;
+      if (q != 0.0f)
       {
         //second real root
-				aRoots[1] = c / q;
-			}
+        aRoots[1] = c / q;
+      }
       else
       {
         //two equal real aRoots
-				aRoots[1] = aRoots[0];
-			}
-			return 2;
-		}
-	}
+        aRoots[1] = aRoots[0];
+      }
+      return 2;
+    }
+  }
 }
 
 /*
