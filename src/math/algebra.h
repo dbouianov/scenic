@@ -497,7 +497,7 @@ INLINE void QuaternionRotationAxis(OUT Quaternion q, Vector v, float deg)
   q[CZ] = v[CZ] * s;
 }
 
-///multiply a color by a coefficient vector
+//multiply a color by a coefficient vector
 INLINE void ColorScale(Color a, Vector k, OUT Color c)
 {
   c[CR] = a[CR] * k[CX];
